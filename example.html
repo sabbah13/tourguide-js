@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TourGuide.js Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS for styling -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- TourGuide.js CSS -->
+    <link rel="stylesheet" href="dist/css/tour.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+        .feature-card {
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        .navbar {
+            margin-bottom: 30px;
+        }
+        .main-content {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary" data-tg-tour="This is the main navigation bar">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Note2 App</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-tg-tour="Home link" data-tg-title="Home Navigation">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-tg-tour="Features link" data-tg-title="Features">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-tg-tour="Pricing link" data-tg-title="Pricing">Pricing</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-tg-tour="Contact link" data-tg-title="Contact Us">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="jumbotron bg-light p-5 rounded">
+        <h1 class="display-4" data-tg-tour="This is the main headline" data-tg-title="Welcome!">Welcome to Note2 Conversations</h1>
+        <p class="lead" data-tg-tour="A brief description of the app" data-tg-title="About Note2">An intelligent note-taking app that helps organize your thoughts and conversations.</p>
+        <hr class="my-4">
+        <p>Get started with our intuitive interface and powerful features.</p>
+        <button class="btn btn-primary btn-lg" id="startTourBtn">Start Tour</button>
+    </div>
+
+    <div class="row main-content">
+        <div class="col-md-4">
+            <div class="card feature-card" data-tg-tour="Create and organize your notes with ease" data-tg-title="Note Organization">
+                <div class="card-body">
+                    <h5 class="card-title">Note Organization</h5>
+                    <p class="card-text">Sort, tag, and categorize your notes with our powerful organizational tools.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card feature-card" data-tg-tour="Convert your voice to text automatically" data-tg-title="Voice to Text">
+                <div class="card-body">
+                    <h5 class="card-title">Voice to Text</h5>
+                    <p class="card-text">Record your thoughts and automatically convert them to formatted text.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card feature-card" data-tg-tour="Connect with teammates and share notes instantly" data-tg-title="Collaboration">
+                <div class="card-body">
+                    <h5 class="card-title">Collaboration</h5>
+                    <p class="card-text">Share and collaborate on notes with team members in real-time.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="card" data-tg-tour="Access your notes from any device" data-tg-title="Cross-Platform">
+                <div class="card-body">
+                    <h5 class="card-title">Access Anywhere</h5>
+                    <p class="card-text">Your notes are securely stored in the cloud and accessible from any device.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<!-- TourGuide.js -->
+<script src="dist/tour.js"></script>
+
+<script>
+    // Initialize TourGuide
+    const tg = new tourguide.TourGuideClient({
+        dialogWidth: 300,
+        backdropColor: 'rgba(0, 31, 63, 0.8)',
+        dialogAnimate: true,
+        dialogPlacement: 'bottom',
+        progressBar: '#0d6efd',
+        exitOnClickOutside: true,
+        showStepDots: true,
+        keyboardControls: true,
+        autoScroll: true,
+        autoScrollSmooth: true
+    });
+
+    // Start the tour when the button is clicked
+    document.getElementById('startTourBtn').addEventListener('click', function() {
+        tg.start();
+    });
+</script>
+
+</body>
+</html>
